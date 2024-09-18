@@ -23,4 +23,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: $(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):latest
+          tags: ${{ secrets.DOCKER_USERNAME}}/${{ github.repository}}:latest
