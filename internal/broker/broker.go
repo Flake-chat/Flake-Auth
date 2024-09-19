@@ -26,7 +26,7 @@ func (b *Broker) Consumer() error {
 	}
 	defer consumer.Close()
 	b.topic = "test"
-	partConsumer, err := consumer.ConsumePartition("pong", 0, sarama.OffsetNewest)
+	partConsumer, err := consumer.ConsumePartition("ps", 1, sarama.OffsetNewest)
 	for {
 		select {
 		case m, ok := <-partConsumer.Messages():
