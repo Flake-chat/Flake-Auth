@@ -1,20 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/Flake-chat/Flake-Auth/internal/api"
 )
 
-type config struct {
-	DB        string
-	Token     string
-	Kafka_url string
-}
-
 func main() {
-	c := config{}
-	c.DB = os.Getenv("ZSH")
+
+	c := api.NewConfig()
+	c.DB = os.Getenv("DATABASE_URL")
 	c.Kafka_url = os.Getenv("KAFKA_URL")
 	c.Token = os.Getenv("JWT_TOKEN")
-	fmt.Println(c)
+	c.LogLevel = os.Getenv("LOGLEVEL")
+	s := api.New(c)
+
+	s.Start()
 }

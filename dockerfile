@@ -1,5 +1,5 @@
 FROM golang:bookworm
-
+LABEL org.opencontainers.image.source=https://github.com/Flake-chat/Flake-Auth
 WORKDIR /usr/local/src
 RUN apt update
 RUN apt install -y build-essential make gcc
